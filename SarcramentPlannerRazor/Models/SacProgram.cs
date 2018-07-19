@@ -13,7 +13,7 @@ namespace SarcramentPlannerRazor.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
         [Required]
-        [Display(Name = "Conduncting")]
+        [Display(Name = "Conducting")]
         public string Conducting { get; set; }
         [Required]
         [Display(Name = "Opening Hymn")]
