@@ -1,0 +1,54 @@
+﻿@page
+@model SarcramentPlannerRazor.Pages.Speakers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Speaker[0].SpeakerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speaker[0].Topic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speaker[0].SpeakerOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speaker[0].SacProgram)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Speaker) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpeakerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpeakerOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SacProgram.ClosingHymn)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SpeakerID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SpeakerID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SpeakerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

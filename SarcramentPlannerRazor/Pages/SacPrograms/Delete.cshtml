@@ -1,0 +1,70 @@
+﻿@page
+@model SarcramentPlannerRazor.Pages.SacPrograms.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SacProgram</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.Conducting)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.Conducting)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.OpeningHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.OpeningHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.OpeningPrayer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.OpeningPrayer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.SacramentHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.SacramentHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.IntermediateHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.IntermediateHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.ClosingHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.ClosingHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.ClosingPrayer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.ClosingPrayer)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="SacProgram.ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

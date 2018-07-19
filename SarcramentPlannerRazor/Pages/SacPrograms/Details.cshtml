@@ -1,0 +1,67 @@
+﻿@page
+@model SarcramentPlannerRazor.Pages.SacPrograms.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SacProgram</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.Conducting)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.Conducting)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.OpeningHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.OpeningHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.OpeningPrayer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.OpeningPrayer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.SacramentHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.SacramentHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.IntermediateHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.IntermediateHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.ClosingHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.ClosingHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacProgram.ClosingPrayer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacProgram.ClosingPrayer)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SacProgram.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
