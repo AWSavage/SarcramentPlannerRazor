@@ -17,13 +17,34 @@ namespace SarcramentPlannerRazor.Pages.Speakers
         {
             _context = context;
         }
+        public string NameSort { get; set; }
+        public string CurrentFilter { get; set; }
 
         public IList<Speaker> Speaker { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder, string searchString)
         {
-            Speaker = await _context.Speaker
-                .Include(s => s.SacProgram).ToListAsync();
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            CurrentFilter = searchString;
+
+            IQueryable<Speaker> speakerIQ = from s in _context.Speaker
+                                            select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                speakerIQ = speakerIQ.Where(s => s.SpeakerName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    speakerIQ = speakerIQ.OrderByDescending(s => s.SpeakerName);
+                    break;
+                default:
+                    speakerIQ = speakerIQ.OrderBy(s => s.SpeakerName);
+                    break;
+            }
+
+            Speaker = await speakerIQ.AsNoTracking().ToListAsync();
         }
     }
 }
