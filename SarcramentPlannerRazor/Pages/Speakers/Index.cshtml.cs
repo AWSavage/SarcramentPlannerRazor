@@ -44,7 +44,8 @@ namespace SarcramentPlannerRazor.Pages.Speakers
                     break;
             }
 
-            Speaker = await speakerIQ.AsNoTracking().ToListAsync();
+            Speaker = await speakerIQ.AsNoTracking()
+                .Include(s => s.SacProgram).ToListAsync();
         }
     }
 }
