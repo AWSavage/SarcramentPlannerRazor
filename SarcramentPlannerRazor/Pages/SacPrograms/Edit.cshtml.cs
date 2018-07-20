@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,9 +12,9 @@ namespace SarcramentPlannerRazor.Pages.SacPrograms
 {
     public class EditModel : PageModel
     {
-        private readonly SarcramentPlannerRazor.Models.SarcramentContext _context;
+        private readonly SarcramentContext _context;
 
-        public EditModel(SarcramentPlannerRazor.Models.SarcramentContext context)
+        public EditModel(SarcramentContext context)
         {
             _context = context;
         }

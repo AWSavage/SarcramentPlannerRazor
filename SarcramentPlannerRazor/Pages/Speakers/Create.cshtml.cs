@@ -20,7 +20,7 @@ namespace SarcramentPlannerRazor.Pages.Speakers
 
         public IActionResult OnGet()
         {
-        ViewData["SacProgramID"] = new SelectList(_context.Set<SacProgram>(), "ID", "ClosingHymn");
+        ViewData["SacProgramID"] = new SelectList(_context.Set<SacProgram>(), "ID", "Date");
             return Page();
         }
 

@@ -6,7 +6,6 @@
 }
 
 <h2>Create</h2>
-
 <h4>Speaker</h4>
 <hr />
 <div class="row">
@@ -15,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Speaker.SacProgramID" class="control-label"></label>
-                <select asp-for="Speaker.SacProgramID" class ="form-control" asp-items="ViewBag.SacProgramID"></select>
+                <select asp-for="Speaker.SacProgramID" class="form-control" asp-items="ViewBag.SacProgramID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Speaker.SpeakerName" class="control-label"></label>
@@ -40,7 +39,9 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="/SacPrograms/Index">Return to Sacrament Programs</a>
+    <br />
+    <a asp-page="Index">View All Speakers</a>
 </div>
 
 @section Scripts {

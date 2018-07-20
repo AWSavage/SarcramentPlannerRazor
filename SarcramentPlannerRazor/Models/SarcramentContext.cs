@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ namespace SarcramentPlannerRazor.Models
 {
     public class SarcramentContext : DbContext
     {
-        public SarcramentContext (DbContextOptions<SarcramentContext> options)
+        public SarcramentContext(DbContextOptions<SarcramentContext> options)
             : base(options)
         {
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,6 +38,9 @@ namespace SarcramentPlannerRazor
 
             services.AddDbContext<SarcramentContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SarcramentContext")));
+
+            services.AddDbContext<SarcramentContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SacramentContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

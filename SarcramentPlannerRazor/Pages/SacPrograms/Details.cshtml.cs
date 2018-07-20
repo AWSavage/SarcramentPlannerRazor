@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,9 +11,9 @@ namespace SarcramentPlannerRazor.Pages.SacPrograms
 {
     public class DetailsModel : PageModel
     {
-        private readonly SarcramentPlannerRazor.Models.SarcramentContext _context;
+        private readonly SarcramentContext _context;
 
-        public DetailsModel(SarcramentPlannerRazor.Models.SarcramentContext context)
+        public DetailsModel(SarcramentContext context)
         {
             _context = context;
         }

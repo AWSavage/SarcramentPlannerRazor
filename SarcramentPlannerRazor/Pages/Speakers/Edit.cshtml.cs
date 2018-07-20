@@ -36,7 +36,7 @@ namespace SarcramentPlannerRazor.Pages.Speakers
             {
                 return NotFound();
             }
-           ViewData["SacProgramID"] = new SelectList(_context.Set<SacProgram>(), "ID", "ClosingHymn");
+           ViewData["SacProgramID"] = new SelectList(_context.Set<SacProgram>(), "ID", "Date");
             return Page();
         }
 

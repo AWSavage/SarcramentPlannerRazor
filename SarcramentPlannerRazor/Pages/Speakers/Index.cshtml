@@ -2,10 +2,10 @@
 @model SarcramentPlannerRazor.Pages.Speakers.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Speakers";
 }
 
-<h2>Index</h2>
+<h2>Speakers</h2>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -23,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.Speaker[0].SpeakerOrder)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Speaker[0].SacProgram)
+                @Html.DisplayNameFor(model => model.Speaker[0].SacProgramID)
             </th>
             <th></th>
         </tr>
@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.SpeakerOrder)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SacProgram.ClosingHymn)
+                @Html.DisplayFor(modelItem => item.SacProgram.Date)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.SpeakerID">Edit</a> |

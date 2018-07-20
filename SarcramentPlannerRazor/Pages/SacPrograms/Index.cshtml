@@ -1,11 +1,11 @@
-﻿@page
+@page "{id:int?}"
 @model SarcramentPlannerRazor.Pages.SacPrograms.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Sacrament Programs</h2>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -13,67 +13,100 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SacProgram[0].Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SacProgram[0].Conducting)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SacProgram[0].OpeningHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SacProgram[0].OpeningPrayer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SacProgram[0].SacramentHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SacProgram[0].IntermediateHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SacProgram[0].ClosingHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SacProgram[0].ClosingPrayer)
-            </th>
+            <th>Date</th>
+            <th>Conducting</th>
+            <th>Opening Hymn</th>
+            <th>Opening Prayer</th>
+            <th>Sacrament Hymn</th>
+            <th>Intermediate Hymn</th>
+            <th>Closing Hymn</th>
+            <th>Closing Prayer</th>
+            <th>Speakers</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.SacProgram) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Conducting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningPrayer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SacramentHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IntermediateHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClosingHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClosingPrayer)
-            </td>
-            <td>
-                <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.SacProgram.SacPrograms)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.SacProgramID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Conducting)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpeningHymn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpeningPrayer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SacramentHymn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IntermediateHymn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClosingHymn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClosingPrayer)
+                </td>
+                <td>
+                    @{
+                        foreach (var speaker in item.Speakers)
+                        {
+                            @speaker.SpeakerName <br />
+                        }
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@if (Model.SacProgram.Speakers != null)
+{
+    <a href="~/Speakers/Create">Add Speaker</a>
+    <h3>Speakers</h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Topic</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.SacProgram.Speakers)
+        {
+            string selectedRow = "";
+            if (item.SpeakerID == Model.SpeakerID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @item.SpeakerName
+                </td>
+                <td>
+                    @item.Topic
+                </td>
+                <td>
+                    <a asp-page="/Speakers/Edit" asp-route-id="@item.SpeakerID">Edit</a> |
+                    <a asp-page="/Speakers/Details" asp-route-id="@item.SpeakerID">Details</a> |
+                    <a asp-page="/Speakers/Delete" asp-route-id="@item.SpeakerID">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+}
